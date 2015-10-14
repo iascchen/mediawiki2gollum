@@ -1,0 +1,62 @@
+<!-- --- title:  -->
+{{Language|Microduino-SD}}
+{| style="width: 800px;"
+|-
+|
+[[/upload/Microduino-SD-T.jpg|width=400px|thumb|align=right|Microduino-SD]]
+
+Microduino-SD aims to read and write data of a memory card. 
+
+
+==Features==
+*Adopt high reliable contact structure as well as a 2.2mm or 2.4mm-thick microsd card holder;
+*Small, cheap, stackable and open;
+*Open hardware circuit design and Arduino compatible programming development environment;
+*Uniform Microduino interface standard and rich peripheral modules, capable of having a fast and flexible connection and extension with other modules and sensors  in accord with Microduino interface standard;
+*Easy to be integrated to pegboards with a 2.45-pitch female header connector interface.
+
+==Specifications==
+*The memory card it supports：MicroSD（TF）；
+[[/upload/SD-Pinout-1.jpg|width=800px|thumb|align=center|Microduino-SD-Pinout]]
+
+==Document==
+Eagle PCB [[File Microduino SD zip|File:Microduino-SD.zip]]
+
+===Main components===
+* Card holder：microsd [[File MicroSD pdf|File:MicroSD.pdf]]
+* Level conversion chip：TC74HC4050 [[File TC74HC4050AF pdf|File:TC74HC4050AF.pdf]]
+
+==Development==
+===Arduino library and supported package===
+*Adopt adfaruit SD library：
+**Original library:（Core+ can't be used directly）【'''[https://github.com/adafruit/SD github download]'''】
+**Changed libray：（The spi pin of Core+ has been changed)【[[File Lib SD zip|File:Lib SD.zip]]】
+**SimpleSDAudio:https://github.com/Microduino/Microduino_Tutorials/tree/master/Microduino_Libraries/_06_Microduino_SD_SimpleSDAudio
+*Microduino core module can be combined with the sensor module to store and read data,and then analyze, process these data.
+
+==Application==
+
+===Program Download===
+Program test：[[File Program Test SD zip|File:Program Test SD.zip]]
+
+===Microduino-SD file read,write,delete test===
+*All hardware needed: Microduino FT232R, Microduino Core and Microduino SD;
+*All software needed: Microduino test program(Arduino terminal), Arduino IDE(version 1.0 and higher) and SD library;
+*Put all the download library file into the libraries of Arduino IDE installation folder;
+*Start Arduino IED, open Microduino test program and choose Microduino Core(Atmega328p@15M,5V), then download;
+*Below are four parts, which can be checked with OLED(If you don't have OLED, you can check with the serial monitor):
+**Check whether the CS pin is ok
+**Write data into SD card;
+**Read out the data of the specified file inside SD card;
+**Delete the specified file inside SD card;
+
+==Buy==
+
+
+==History==
+
+
+==Pictures==
+[[/upload/Microduino-SD-t.jpg|thumb|width=600px|align=center|Front]]
+[[/upload/Microduino-SD-b.jpg|thumb|width=600px|align=center|Back]]
+|}

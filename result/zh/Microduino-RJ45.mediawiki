@@ -1,0 +1,71 @@
+<!-- --- title:  -->
+{{Language|Microduino-RJ45}}
+{| style="width: 800px;"
+|-
+|
+[[/upload/Microduino-rj45-rect.jpg|width=400px|thumb|align=right|Microduino-RJ45]]
+[[Microduino RJ45|Microduino-RJ45]] must be stacked with [[Microduino ENC28J60|Microduino-ENC28J60]] together to form a complete Ethernet module, individual module cannot be used separately. 
+
+RJ45 is the most popular Ethernet jacket, used for data transportation and communication.
+
+The "RJ45" physical connector is standardized as the IEC 60603-7 8P8C modular connector with different "categories" of performance, with all eight conductors present but 8P8C is commonly known as RJ45. The physical dimensions of the male and female connectors are specified in ANSI/TIA-1096-A and ISO-8877 standards and normally wired to the T568A and T568B pinouts specified in the TIA/EIA-568 standard to be compatible with both telephone and Ethernet.
+
+|-
+|
+
+==Features==
+|-
+|
+
+==Specifications==
+|-
+|
+:[[/upload/Micrduino-Enc28J60-1.jpg|width=800px|thumb|align=center|Microduino-ENC28J60 Spec]]
+<br style="clear: left"/>
+
+==Documents==
+* Snapshot of [[Microduino RJ45|Microduino-RJ45 ]] schematic
+* [[Microduino RJ45|Microduino-RJ45]] Eagle source file 【[[media Microduino RJ45 zip download|media:Microduino-RJ45.zip|download]]】
+* [[Microduino RJ45|Microduino-RJ45]] main chips
+** RJ45： 【[[media HR911105A PDF HR911105A|media:HR911105A.PDF|HR911105A]]】
+** DC-DC：[[media LM2674M pdf LM2674M 5 0|media:LM2674M.pdf|LM2674M-5.0]]
+|-
+|
+
+==Development==
+* Arduino IDE library and support
+**https://github.com/Microduino/Microduino_Tutorials/tree/master/Microduino_Libraries/_02_Microduino_Ethernet_ENC
+** [[Microduino ENC28J60|Microduino-ENC28J60]] workshops
+**【'''[http://www.geek-workshop.com/thread-2260-1-1.html ENC28J60 Tutorial]'''】
+**【'''[http://www.geek-workshop.com/thread-4558-1-1.html Microduino-ENC28J60 workshop]'''】
+
+|-
+|
+
+==Applications==
+
+|-
+|
+
+==Buy==
+* Buy '''[http://www.microduino.cc/Modules/Microdoino%20Extension%20Modules/enc Microduino-ENC]'''
+
+|-
+|
+==Pictures==
+[[/upload/Microduino-RJ45-t.jpg|thumb|width=600px|align=center|Microduino RJ45 Front]]
+[[/upload/ Microduino-RJ45-b.jpg |thumb|width=600px|align=center|Microduino RJ45 Back]]
+
+|-
+|
+
+==History==
+*Origin：  
+**RJ on behalf of the Registered Jack (Registered Jack), is derived from the bell system the USOC (Universal Service Ordering Codes, the Universal Service classification code) code. USOC is a series of registered jack and its connection mode, is developed by the bell system, used in the user's device connected to the public network. The FCC regulations controlling the application of this purpose. The FCC (federal communications commission) issued a document on behalf of the United States imposes RJ11. 
+**RJ11 is used in Western electronics (Western ElectricCo) development of generic names of connectors. Its appearance is defined as 6 pin connecting device, formerly known as WExW, x means 'active', contact or line injection. For example, WE6W has six full contact, numbered from 1 to 6. WE4W interface only uses the outer 4 needle pins, two contacts (1 and 6) no used. WE2W only uses two pins in the middle. For RJ11, source of information is contradictory, it can be 2 or 4 core 6 pin connector. Even more confusing, RJ11 and is used to represent not only 6 pin connector, it also refers to the version of 4 pins. 
+**RJ45 and RJ11：Different standard, different size  
+**Due to the different size of these two device (RJ11 for 4 or 6 pins, RJ45 for 8 pin connection devices), apparently RJ45 plugs can't insert RJ11 socket. But in turn they are available in the physical (RJ11 plugs is smaller than RJ45 socket), which let people mistakenly assume that both should or can work together. In fact not the fact. It is strongly recommended that don't use RJ11 plugs for RJ45 socket.
+**For RJ11 isn't the international standard, its size, the insert, insert Angle and so on is not regulated in accordance with the international standard connectors design requirements, so you can't ensure the interoperability. They even caused the damage for each other. Because the RJ11 plugs is smaller than RJ45 socket, plug on both sides of the plastic parts will be damaged metal needle inserted jack.
+
+|}
+

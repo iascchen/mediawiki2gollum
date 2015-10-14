@@ -1,0 +1,111 @@
+<!-- --- title:  -->
+{{Language|Microduino-RTC}}
+{| style="width: 800px;"
+|-
+|
+[[/upload/Microduino-RTC-T.jpg|width=400px|thumb|align=right|Microduino-RTC]]
+Microduino-RTC Module is a Real Time Clock module based on NXP CMOS PCF8563. RTC module uses TWI/I2C interface for communication. Data can be backed up with the addtional AT24c32 EEPROM. With an onboard capacitor, RTC module keeps timing for serveral minutes after power disconnected. PCF8563 uses an external crystal and a capacitor as well as an interrupt input which can trigger the interruption periodically.  
+
+* Microduino RTC Real Time Clock Module
+* PCF8563 CMOS Real-Time Clock (RTC)
+* Two-Wire Interface (I2C)
+* It is supported by additional EEPROM AT24C32
+
+|-
+|
+==Feature==
+*Based on PCF8563 clock chip with century mark, second, minute, hour, day, week, month, year;
+*Use the I2C interface to communicate with the Core/Core+ module; 
+*Use EEPROM AT24C32 with I2C interface;
+*Low-power clock chip, the typical current value 0.25μA. With a super capacitor, the clock still keeps running after a power diconnection;
+*Open hardware circuit design and Arduino compatible programming development environment;
+*Uniform Microduino interface standard and rich peripheral modules, capable of having a fast and flexible connection and extension with other modules and sensors  in accord with Microduino interface standard;
+*Easy to be integrated to pegboards with a 2.45-pitch female header connector interface. 
+|-
+|
+
+==Specification==
+*Clock chip: PCF8563;
+**Low-power CMOS real-time clock/calendar chip；
+**Provide a programmable clock output, an interrupt output and a brown-out detector. All the addresses and data will have a serial transmission through the I2C bus interface;
+**With the maximum bus speed of 400Kbits/s, the embedded word address register will generate increment automatically after reading and writing data every time.
+
+*EEPROM chip：AT24C32
+**Provide 32,768 EPROM serial power, which can  be organized with a length of 4096 words × 8-bit;
+**Cascade feature allows AT24C32 to articulate eight devices on the same I2C bug, to have the replication cycle of millions lives and saved the data to 100 years  with a write-protect function.
+*Super capacitor：XH414
+**Provide a power-down timing function in a time slot.
+
+[[/upload/RTC-Pinout-1.jpg|width=800px|thumb|align=center|Microduino-RTC-Pinout]]
+
+==Document==
+Eagle PCB [[media Microduino RTC zip Download|media:Microduino-RTC.zip|Download]]
+
+===Main components===
+*Clock chip：PCF8563 [[File PCF8563 cn pdf|File:PCF8563 cn.pdf]],[[File PCF8563 en pdf|File:PCF8563 en.pdf]]
+*EEPROM：AT24c32 [[File Atmel24c32 pdf|File:Atmel24c32.pdf]]
+*Clock crystal：MS2V-T1S [[File MS2V T1S pdf|File:MS2V-T1S.pdf]]
+* Crystal：[[media MS2V T1S pdf MS2V T1S|media:MS2V-T1S.pdf|MS2V-T1S]]
+
+[[/upload/RTC-Pinout-1.jpg|width=800px|thumb|align=center|Microduino-RTC-Pinout1]]
+
+==Development==
+
+===Arduino library and support package===
+*Rtc_Pcf8563:https://github.com/Microduino/Microduino_Tutorials/tree/master/Microduino_Libraries/_06_Microduino_RTC_PCF8563
+*I2Cdev:https://github.com/Microduino/Microduino_Tutorials/tree/master/Microduino_Libraries/_10_Microduino_System_I2Cdev
+*U8glib:https://github.com/Microduino/Microduino_Tutorials/tree/master/Microduino_Libraries/_01_Microduino_OLED_U8glib
+*【Pcf8563 Arduino Library'''[http://playground.arduino.cc/Main/RTC-PCF8563 ArduinoPlayground]''' 】
+
+==Application==
+
+===Software Download===
+*Test program：：[[File Program Test RTC zip|File:Program Test RTC.zip]]
+
+*Prepared hardware：Microduino FT232R, Microduino Core, Microduino RTC andMicroduino OLED；
+*Prepared software：Microduino provides test program（Arduino terminal）, Arduino IDE（version 1.0 and higher）and Rtc_Pcf8563 library；
+*Put the downloaded library to the library subfolder of Arduino IDE installation folder；
+*Start Arduino IED，open the Microduino test program, choose the "Microduino Core (Atmega328P@16M,5V)" , then download directly.
+
+
+===Test the continued time after power down：[RTC_Time]===
+*The loading process is displayed after power on, including：Welcome！Load Time and "Microduino". It takes about one second to load a project. After the loading, it will enter into the main program page.
+**Date is displayed on the first line. The format is xx/xx/xx(year/month/day);
+**Time including week is displayed on the second line. The time format: xx:xx:xx(Hour:minute:second), followed the week(English format,excluding abbreviations)；
+**The third line fixedly shows："Microduino-RTC v1.0  201310". Please choose small font due to lots of characters；
+*After program running, just disconnect the power and wait for a while. You can see the Time on the second line that is the continued time instead of the default time;
+**(Note: Microduino-RTC is a programmable clock output module，using function vosettime() to set time. By setting time through vosettime() function, you need to comment out vosettime() so that you can take blackout timing next time. Otherwise, you have to reset the value after power-on and restart.)
+
+===Test EEPROM read/write：[RTC_EEPROM]===
+*The loading process is displayed as soon as the system powers on, including Welcome!, Load EEPROM and "Microduino". In every minute, will the system load a project. It will enter the main program page after the download; 
+**The first line displays the random function values，the first value is a random number from 10 to 99, the second value is the read value power recovered after last power down；
+**The second line fixed displays that："Microduino-RTC v1.0  201310". Please choose small font due to lots of characters；
+*You can shut off the power supply and then restart during the test. And you'll see that the last value before the blackout has updated to the place where the EEPROM displays values. 
+
+
+===Test regular interruption：[RTC_Alarm]===
+*The loading process is displayed as soon as the system powers on, including Welcome!, Load EEPROM and "Microduino". In every minute, will the system load a project. It will enter the main program page after the download;
+**The first line shows the time. Time format: xx:xx:xx(Hour:minute:second);
+**The second line shows："Microduino-RTC v1.0  201310". Please choose small font due to lots of characters；
+*When it reaches the set time, the LED light flashes one time per second and lasts for one minute. You can see the countdown time on the OLED screen
+
+|-
+|
+
+
+==Purchase==
+* '''[http://www.microduino.cc/Modules/Microdoino%20Extension%20Modules/RTC Buy Microduino-RTC ]'''
+
+|-
+|
+==History==
+*first version: 2013/July/06 passed internal testing
+
+
+|-
+|
+==Pictures==
+[[/upload/rtc-t.jpg|thumb|width=600px|align=center|Front]]
+[[/upload/rtc-B.jpg|thumb|width=600px|align=center|Back]]
+|-
+|}
